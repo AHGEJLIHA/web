@@ -10,7 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
-    
+
 
     <!-- Bootstrap core CSS -->
 <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -41,12 +41,12 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
   <body>
-    
+
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">База резюме</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -194,30 +194,16 @@
 			  feather.replace({ 'aria-hidden': 'true' })
 
 			  // Graphs
-			  var ctx = document.getElementById('myChart')
-			  // eslint-disable-next-line no-unused-vars
-			  var myChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-				  labels: [
-					'Sunday',
-					'Monday',
-					'Tuesday',
-					'Wednesday',
-					'Thursday',
-					'Friday',
-					'Saturday'
-				  ],
+              const ctx = document.getElementById('myChart');
+              // eslint-disable-next-line no-unused-vars
+              const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+              {% autoescape false %}
+				  labels: {{ labels }}
+				  {% endautoescape %}
 				  datasets: [{
-					data: [
-					  15339,
-					  21345,
-					  18483,
-					  24003,
-					  23489,
-					  24092,
-					  12034
-					],
+				    data: {{ data }},
 					lineTension: 0,
 					backgroundColor: 'transparent',
 					borderColor: '#007bff',
